@@ -2,7 +2,7 @@ import React,{ FC } from "react";
 
 const Header : FC = () => (
   <div>
-    Home Page
+    Home/header
   </div>
 );
 
