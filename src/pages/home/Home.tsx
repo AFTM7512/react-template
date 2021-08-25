@@ -1,36 +1,57 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import RenderRouter from "router/RenderRouter";
 import { IRouterConfig } from "./home-interface";
-import { Link } from "react-router-dom";
-import { Button } from "antd";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import { INCREMENT_COUNT, DECREMENT_COUNT } from "store/reduces/counts";
-import { DECREMENT_COUNT_ASYNC } from "store/sagas/root-saga";
-import { IState, IAction } from "store/types";
+import { Layout, Menu } from "antd";
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+} from "@ant-design/icons";
+import styles from "./home.scss";
 
-const Home: FC<IRouterConfig> = ({ routes, count, onClickDispatch }) => (
-  <div>
-    <div>Home Page</div>
-    <Button onClick={ () => onClickDispatch({ type: INCREMENT_COUNT }) }>increment</Button>
-    <Button onClick={ () => onClickDispatch({ type: DECREMENT_COUNT }) }>decrement</Button>
-    <Button onClick={ () => onClickDispatch({ type: DECREMENT_COUNT_ASYNC }) }>saga decrement</Button>
-    <div>count is {count}</div>
-    <div><Link to="/about">To About</Link></div>
-    {
-      routes && <RenderRouter routes={routes} />
-    }
-  </div>
-);
+const { Header, Sider, Content } = Layout;
 
-const mapStateToProps = (state: IState) => ({
-  count: state.counts.count,
-});
+const Home: FC<IRouterConfig> = ({ routes }) => {
+  const [collapse, setCollapse] = useState(false);
+  return (
+    <Layout className={styles.home}>
+      <Sider trigger={null} collapsible collapsed={collapse}>
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onClickDispatch: (action: IAction) => {
-    dispatch(action);
-  },
-});
+        <div className={styles.home__logo} />
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+          <Menu.Item key="1" icon={<UserOutlined />}>
+            nav 1
+          </Menu.Item>
+          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+            nav 2
+          </Menu.Item>
+          <Menu.Item key="3" icon={<UploadOutlined />}>
+            nav 3
+          </Menu.Item>
+        </Menu>
+      </Sider>
+
+      <Layout className={styles.home__container}>
+        <Header className={styles["home__container--header"]}>
+          {React.createElement(collapse ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: "trigger",
+            onClick: () => setCollapse(!collapse),
+          })}
+        </Header>
+        <Content
+          className={styles["home__container--content"]}
+        >
+          Content
+        </Content>
+      </Layout>
+      {/* 渲染页面 */}
+      {
+        routes && <RenderRouter routes={routes} />
+      }
+    </Layout>
+  );
+};
+export default Home;

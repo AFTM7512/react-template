@@ -131,7 +131,7 @@ module.exports = {
     // 参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性
     // false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, {"allowKeywords": false}]
     // allowPattern: 当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, {"allowPattern": "^[a-z]+(_[a-z]+)+$"}]
-    "dot-notation": [2, {"allowKeywords": false}],
+    "dot-notation": [2, { "allowKeywords": false }],
     // 使用 === 替代 == allow-null允许null和undefined==
     "eqeqeq": [2, "allow-null"],
     // 要求 for-in 循环中有一个 if 语句
@@ -269,7 +269,7 @@ module.exports = {
     // 禁止将 undefined 作为标识符
     "no-undefined": 0,
     // 禁止出现未使用过的变量
-    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "no-unused-vars": 1,
     // 不允许在变量定义之前使用它们
     "no-use-before-define": 0,
 
@@ -306,11 +306,11 @@ module.exports = {
     "block-spacing": [1, "never"],
     // 强制使用一致的缩进 第二个参数为 "tab" 时，会使用tab，
     // if while function 后面的{必须与if在同一行，java风格。
-    "brace-style": [2, "1tbs", {"allowSingleLine": true}],
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
     // 双峰驼命名格式
     "camelcase": 2,
     // 控制逗号前后的空格
-    "comma-spacing": [2, {"before": false, "after": true}],
+    "comma-spacing": [2, { "before": false, "after": true }],
     // 控制逗号在行尾出现还是在行首出现 (默认行尾)
     // http://eslint.org/docs/rules/comma-style
     "comma-style": [2, "last"],
@@ -324,13 +324,13 @@ module.exports = {
     "func-names": 0,
     // 文件末尾强制换行
     "eol-last": 2,
-    "indent": [2, 2, {"SwitchCase": 1}],
+    "indent": [2, 2, { "SwitchCase": 1 }],
     // 强制在对象字面量的属性中键和值之间使用一致的间距
-    "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
+    "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     // 强制使用一致的换行风格
     // 'linebreak-style': [1, 'unix'],
     // 要求在注释周围有空行 ( 要求在块级注释之前有一空行)
-    "lines-around-comment": [1, {"beforeBlockComment": true}],
+    "lines-around-comment": [1, { "beforeBlockComment": true }],
     // 强制一致地使用函数声明或函数表达式，方法定义风格，参数：
     // declaration: 强制使用方法声明的方式，function f(){} e.g [2, "declaration"]
     // expression：强制使用方法表达式的方式，var f = function() {} e.g [2, "expression"]
@@ -359,7 +359,7 @@ module.exports = {
     // 强制每一行中所允许的最大语句数量
     "max-statements-per-line": 0,
     // 要求构造函数首字母大写 （要求调用 new 操作符时有首字母大小的函数，允许调用首字母大写的函数时没有 new 操作符。）
-    "new-cap": [2, {"newIsCap": true, "capIsNew": false}],
+    "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
     // 要求调用无参构造函数时有圆括号
     "new-parens": 2,
     // 要求或禁止 var 声明语句后有一行空行
@@ -383,7 +383,7 @@ module.exports = {
     // 不允许空格和 tab 混合缩进
     "no-mixed-spaces-and-tabs": 2,
     // 不允许多个空行
-    "no-multiple-empty-lines": [2, {"max": 2}],
+    "no-multiple-empty-lines": [2, { "max": 2 }],
     // 不允许否定的表达式
     "no-negated-condition": 0,
     // 不允许使用嵌套的三元表达式
@@ -413,13 +413,13 @@ module.exports = {
     // 强制将对象的属性放在不同的行上
     "object-property-newline": 0,
     // 强制函数中的变量要么一起声明要么分开声明
-    "one-var": [2, {"initialized": "never"}],
+    "one-var": [2, { "initialized": "never" }],
     // 要求或禁止在 var 声明周围换行
     "one-var-declaration-per-line": 0,
     // 要求或禁止在可能的情况下要求使用简化的赋值操作符
     "operator-assignment": 0,
     // 强制操作符使用一致的换行符
-    "operator-linebreak": [2, "after", {"overrides": {"?": "before", ":": "before"} }],
+    "operator-linebreak": [2, "after", { "overrides": { "?": "before", ":": "before" } }],
     // 要求或禁止块内填充
     "padded-blocks": 0,
     // 要求对象字面量属性名称用引号括起来
@@ -434,16 +434,14 @@ module.exports = {
     "sort-vars": 0,
     // 强制在块之前使用一致的空格
     "space-before-blocks": [2, "always"],
-    // 强制在 function的左括号之前使用一致的空格
-    "space-before-function-paren": [2, "always"],
     // 强制在圆括号内使用一致的空格
     "space-in-parens": [2, "never"],
     // 要求操作符周围有空格
     "space-infix-ops": 2,
     // 强制在一元操作符前后使用一致的空格
-    "space-unary-ops": [2, {"words": true, "nonwords": false}],
+    "space-unary-ops": [2, { "words": true, "nonwords": false }],
     // 强制在注释中 // 或 /* 使用一致的空格
-    "spaced-comment": [2, "always", {"markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"] }],
+    "spaced-comment": [2, "always", { "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"] }],
     // 要求或禁止 Unicode BOM
     "unicode-bom": 0,
     // 要求正则表达式被括号括起来
@@ -457,11 +455,11 @@ module.exports = {
     "arrow-body-style": 2,
     // 要求箭头函数的参数使用圆括号
     "arrow-parens": 2,
-    "arrow-spacing": [2, {"before": true, "after": true}],
+    "arrow-spacing": [2, { "before": true, "after": true }],
     // 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示
     "constructor-super": 0,
     // 强制 generator 函数中 * 号周围使用一致的空格
-    "generator-star-spacing": [2, {"before": true, "after": true}],
+    "generator-star-spacing": [2, { "before": true, "after": true }],
     // 禁止修改类声明的变量
     "no-class-assign": 2,
     // 不允许箭头功能，在那里他们可以混淆的比较

@@ -7,13 +7,13 @@ import {
 import IfWrap from "components/if-wrap/IfWrap";
 import IRouteItem from "./types";
 
-  interface IRouterConfig {
+interface IRouterConfig {
   routes: IRouteItem[],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   extraProps?: any,
 }
 
-export default function RenderRouter (props: IRouterConfig) {
+export default function RenderRouter(props: IRouterConfig) {
   const { routes, extraProps } = props;
   return (
     <IfWrap when={routes}>

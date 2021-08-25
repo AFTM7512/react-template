@@ -4,14 +4,14 @@ interface Iprops {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any,
 }
- interface IState {
-      component: ComponentType | null
+interface IState {
+  component: ComponentType | null
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function asyncComponent (importComponent: () => any) {
+export default function asyncComponent(importComponent: () => any) {
   class AsyncComponent extends Component<Iprops, IState> {
-    constructor (props: Iprops) {
+    constructor(props: Iprops) {
       super(props);
 
       this.state = {
@@ -19,7 +19,7 @@ export default function asyncComponent (importComponent: () => any) {
       };
     }
 
-    async componentDidMount () {
+    async componentDidMount() {
       const { default: component } = await importComponent();
 
       this.setState({
@@ -27,7 +27,7 @@ export default function asyncComponent (importComponent: () => any) {
       });
     }
 
-    render () {
+    render() {
       const C = this.state.component;
 
       return (

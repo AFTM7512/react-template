@@ -1,9 +1,7 @@
 
 import IRouteItem from "router/types";
-import { IAction } from "store/types";
 
+// 首页相关的 interface
 export interface IRouterConfig {
   routes?: IRouteItem[],
-  count?: number,
-  onClickDispatch: (action: IAction) => void,
 }
