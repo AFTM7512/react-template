@@ -1,8 +1,8 @@
 import React, { Children, FC } from "react";
 
-  interface IfWrapProps {
+interface IfWrapProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    when: any,
+  when: any,
 }
 
 // 用来包装需要判断展示dom的，类似于 v-if

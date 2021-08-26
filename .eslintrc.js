@@ -37,7 +37,7 @@ module.exports = {
     // 禁止条件表达式中出现赋值操作符
     "no-cond-assign": 2,
     // 禁用 console
-    "no-console": 0,
+    "no-console": 1,
     // 禁止在条件中使用常量表达式
     // if (false) {
     // doSomethingUnfinished();
@@ -325,6 +325,7 @@ module.exports = {
     // 文件末尾强制换行
     "eol-last": 2,
     "indent": [2, 2, { "SwitchCase": 1 }],
+    "@typescript-eslint/indent": [2, 2],
     // 强制在对象字面量的属性中键和值之间使用一致的间距
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     // 强制使用一致的换行风格
@@ -516,5 +517,4 @@ module.exports = {
     "react-hooks/rules-of-hooks": 2,
     "@typescript-eslint/keyword-spacing": 2, // 在关键字左右使用一致的间距
   },
-
 };

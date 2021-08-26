@@ -9,19 +9,25 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
+import { MenuInfo } from "rc-menu/lib/interface";
 import styles from "./home.scss";
 
 const { Header, Sider, Content } = Layout;
 
 const Home: FC<IRouterConfig> = ({ routes }) => {
   const [collapse, setCollapse] = useState(false);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>();
+
+  function handleClickMenu(menuInfo: MenuInfo): void {
+    setSelectedKeys([(menuInfo.key as string)]);
+  }
   return (
     <Layout className={styles.home}>
       <Sider trigger={null} collapsible collapsed={collapse}>
 
         <div className={styles.home__logo} />
 
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu theme="dark" mode="inline" selectedKeys={selectedKeys} onClick={handleClickMenu}>
           <Menu.Item key="1" icon={<UserOutlined />}>
             nav 1
           </Menu.Item>

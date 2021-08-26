@@ -539,7 +539,7 @@ module.exports = function (webpackEnv) {
                   loader: 'sass-resources-loader',
                   options: {
                     resources: [
-                      path.resolve(__dirname, '../variable.scss'),
+                      path.resolve(__dirname, '../src/variable.scss'),
                     ]
                   }
                 }

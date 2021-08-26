@@ -1,0 +1,6 @@
+
+# 配置 eslint 不生效文件夹
+config/
+public/
+
+# 不生效文件
